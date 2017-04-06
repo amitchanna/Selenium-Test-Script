@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://wsruat.beckmancoulter.com/" />
+<title>Quick Order</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Quick Order</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>https://wsruat.beckmancoulter.com</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=region_america</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=United States</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=submitLogin</td>
+	<td></td>
+</tr>
+<!--//verify user login-->
+<tr>
+	<td>storeEval</td>
+	<td>username</td>
+	<td>username</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>pwd</td>
+	<td>pwd</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=l_username</td>
+	<td>${username}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=l_password</td>
+	<td>${pwd}</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=a.shoppingTools</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Quick Order</td>
+	<td></td>
+</tr>
+<!--//verify the components of all three options-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=h5</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Enter multiple item numbers separated by commas, spaces or carriage returns. Select &quot;Validate&quot; to view the product name for each item number and confirm that each item number is available for sale online. Select &quot;Add to Cart&quot; to add each item number that is available for sale online to your shopping cart.</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=manual-entry-option1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#option1Validate &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#option1AddtoCart &gt; span</td>
+	<td></td>
+</tr>
+<!--//verify the items by option1-->
+<tr>
+	<td>click</td>
+	<td>id=option1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>itemnos</td>
+	<td>itemnos</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=manual-entry-option1</td>
+	<td>${itemnos}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#option1Validate &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#option1AddtoCart1 &gt; span</td>
+	<td></td>
+</tr>
+<!--// control and looping-->
+<tr>
+	<td>storeElementPresent</td>
+	<td>id=requestDate</td>
+	<td>datepresent</td>
+</tr>
+<tr>
+	<td>gotoIf</td>
+	<td>${datepresent} == false</td>
+	<td>End</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=requestDate</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>extraitem</td>
+	<td>extraitem</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>date</td>
+	<td>date</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=requestDate</td>
+	<td>2017-06-02</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=itemNumber</td>
+	<td>${extraitem}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#disableMultiCartId &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//form[@id='shoppingCart']/div[6]/span/a/span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>gotolabel</td>
+	<td>execute</td>
+	<td></td>
+</tr>
+<tr>
+	<td>label</td>
+	<td>End</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=span.submission &gt; #submitLogin &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>label</td>
+	<td>execute</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=a.rounded.greyBtn &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=a.rounded.redBtn &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>shipattn</td>
+	<td>shipattn</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input[name=&quot;shipAttn&quot;]</td>
+	<td>${shipattn}</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>billattn</td>
+	<td>billattn</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input[name=&quot;billAttn&quot;]</td>
+	<td>${billattn}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=a.rounded.redBtn &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=purchaseOrder</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=creditCard</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>cardno</td>
+	<td>cardno</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>seccode</td>
+	<td>seccode</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>holdername</td>
+	<td>holdername</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>poref</td>
+	<td>poref</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=creditCard</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=creditCardChoiceAmex</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=cardNumber</td>
+	<td>${cardno}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=securityCode</td>
+	<td>${seccode}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=cardName</td>
+	<td>${holdername}</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=poReference</td>
+	<td>${poref}</td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=a.rounded.greyBtn &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#continueConfirmBtn &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#continueConfirmBtn &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>PO_Ref_Msg</td>
+	<td>PO_Ref_Msg</td>
+</tr>
+<tr>
+	<td>storeElementPresent</td>
+	<td>css=li &gt; label.error</td>
+	<td>PO_Ref_Msg</td>
+</tr>
+<tr>
+	<td>gotoIf</td>
+	<td>${PO_Ref_Msg} == true</td>
+	<td>STOP</td>
+</tr>
+<!--// Verifying Order Confirmation page-->
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=orderStatusEmail</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>id=txt_notifyOtherEmails</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>id=agreeTerms</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=a.rounded.greyBtn</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>css=#submitOrderBtn &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=agreeTerms</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>emails</td>
+	<td>emails</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=txt_notifyOtherEmails</td>
+	<td>${emails}</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=#submitOrderBtn &gt; span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>glob: *Thank you*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>glob: *Your order is being*</td>
+	<td></td>
+</tr>
+<tr>
+	<td>label</td>
+	<td>STOP</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>
