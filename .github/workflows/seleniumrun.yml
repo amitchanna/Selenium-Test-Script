@@ -24,7 +24,7 @@ jobs:
         run: npm install -g selenium-side-runner
 
       - name: Setup Chrome and ChromeDriver
-        uses: browser-actions/setup-chrome@v3
+        uses: browser-actions/setup-chrome@v2
         with:
           install-chromedriver: true
           install-dependencies: true
