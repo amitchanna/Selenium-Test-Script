@@ -23,11 +23,11 @@ jobs:
       - name: Install Selenium SIDE Runner
         run: npm install -g selenium-side-runner
 
-      - name: Setup Google Chrome
-        uses: browser-actions/setup-chrome@latest
-
-      - name: Setup ChromeDriver
-        uses: browser-actions/setup-chromedriver@latest
+      - name: Setup Chrome and ChromeDriver
+        uses: browser-actions/setup-chrome@v3
+        with:
+          install-chromedriver: true
+          install-dependencies: true
 
       - name: Run Selenium SIDE tests
         # Replace 'your-project.side' with the path to your actual .side file
